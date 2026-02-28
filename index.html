@@ -16,6 +16,7 @@
     window.EMBEDDED_NILAI = null;
     window.EMBEDDED_GURU = "";
     window.EMBEDDED_MAPEL = "";
+    window.MODE_GURU = false;
   </script>
   
   <style>
@@ -72,7 +73,8 @@
     <h2>DAFTAR NILAI</h2>
     <h3>PESANTREN AL MA'TUQ</h3>
     <div class="nav-container" id="nav-container" style="display: none;">
-      <button class="btn-nav" id="nav-utama" onclick="bukaHalaman('utama')">🏠 Utama</button>
+      <button class="btn-nav" id="nav-cover" onclick="bukaHalaman('cover')">🏠 Beranda</button>
+      <button class="btn-nav aktif" id="nav-utama" onclick="bukaHalaman('utama')">📝 Isi Nilai</button>
       <button class="btn-nav" id="nav-siswa" onclick="bukaHalaman('siswa')">👥 Data Siswa</button>
       <button class="btn-nav" id="nav-pengaturan" onclick="bukaHalaman('pengaturan')">⚙️ Pengaturan</button>
     </div>
@@ -212,14 +214,12 @@
       const kelasPanungtung = localStorage.getItem('almatuq_kelas');
       if (kelasPanungtung && dbSiswa[kelasPanungtung]) { document.getElementById('kelas').value = kelasPanungtung; loadSiswa(); }
 
-      // Menu Import dan Download disembunyikan jika dihosting di GitHub
-      if (window.location.protocol.startsWith('http') && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1')) {
+      // DETEKSI MODE GURU (Nyumputkeun Impor upami aplikasina hasil unduhan/di-GitHub-keun)
+      if (window.MODE_GURU) {
           let cImport = document.getElementById('card-import'); if(cImport) cImport.style.display = 'none';
           let cDown = document.getElementById('card-download'); if(cDown) cDown.style.display = 'none';
-          // Catatan: Menu 'Data Siswa' dibiarkan tetap ada agar guru bisa mengedit nama lokal
       }
 
-      // Tampilkan Halaman Cover saat pertama kali dimuat
       bukaHalaman('cover');
     };
 
@@ -381,7 +381,7 @@
             localStorage.setItem('almatuq_siswa', JSON.stringify(dbSiswa)); localStorage.setItem('almatuq_nilai', JSON.stringify(dataNilai));
             updateDropdownKelasGlobal();
             document.getElementById('kelas').value = ""; document.getElementById('container-siswa').style.display = 'none'; document.getElementById('table-container').style.display = 'none'; document.getElementById('tab-container').style.display = 'none';
-            alert(`Berhasil! ${countSiswa} data siswa telah diimpor.\nSilakan masuk ke Halaman Utama lalu pilih Kelasnya.`);
+            alert(`Berhasil! ${countSiswa} data siswa telah diimpor.\nSilakan masuk ke menu Isi Nilai lalu pilih Kelasnya.`);
           }
         } catch (err) { alert("Terjadi kesalahan: " + err.message); }
         event.target.value = ""; 
@@ -507,7 +507,7 @@
         let dataSheet = [];
         dbSiswa[kls].forEach((s, i) => {
           let dn = dataNilai[getKey(kls, s.nama)] || {}; 
-          let rowData = { "No": i + 1, "Mata Pelajaran": namaMapel, "Guru": namaGuru, "Kelas": kls, "Nama Lengkap": s.nama };
+          let rowData = { "No": i + 1, "Nama Lengkap": s.nama };
           
           if (jenis === 'rapor') {
             rowData["RAPOR SMT 1"] = dn.rap1 || "";
@@ -526,8 +526,16 @@
           }
           dataSheet.push(rowData);
         });
-        if (dataSheet.length > 0) XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(dataSheet), kls); 
-      });
+			if (dataSheet.length > 0) {
+          // Format ngaran sheet: Kelas_Mapel_Guru
+          let namaSheet = `${kls}_${namaMapel}_${namaGuru}`;
+          
+          // Excel boga wates maksimal 31 karakter keur ngaran sheet jeung teu meunang aya simbol anéh
+          namaSheet = namaSheet.replace(/[\\/*?:\[\]]/g, '').substring(0, 31);
+          
+          XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(dataSheet), namaSheet); 
+        }
+		  });
       if(wb.SheetNames.length > 0) XLSX.writeFile(wb, `Data_Nilai_${jenis.toUpperCase()}_${cakupan}.xlsx`);
       else alert("Pilih kelas terlebih dahulu atau tidak ada data untuk diekspor!");
     }
@@ -553,10 +561,11 @@
       let guruAktif = document.getElementById('guru').value || "";
       let mapelAktif = document.getElementById('mapel').value || "";
       
-      scriptTag.textContent = `\n    window.EMBEDDED_SISWA = ${JSON.stringify(dbSiswa)};\n    window.EMBEDDED_NILAI = ${JSON.stringify(dataNilai)};\n    window.EMBEDDED_GURU = "${guruAktif}";\n    window.EMBEDDED_MAPEL = "${mapelAktif}";\n  `;
+      // IEU MESIN PINTERNA: ngarubah file anu di-download jadi "Mode Guru" otomatis
+      scriptTag.textContent = `\n    window.EMBEDDED_SISWA = ${JSON.stringify(dbSiswa)};\n    window.EMBEDDED_NILAI = ${JSON.stringify(dataNilai)};\n    window.EMBEDDED_GURU = "${guruAktif}";\n    window.EMBEDDED_MAPEL = "${mapelAktif}";\n    window.MODE_GURU = true;\n  `;
       
       const blob = new Blob(["<!DOCTYPE html>\n<html lang=\"id\">\n" + doc.documentElement.innerHTML + "\n</html>"], {type: "text/html;charset=utf-8"});
-      const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "Aplikasi_Nilai_Siap_Pakai.html"; a.click();
+      const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "Aplikasi_Nilai.html"; a.click();
     }
 
     function resetSemuaData() {
