@@ -23,10 +23,13 @@
     input, select { -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; }
     :root { --primary: #1e3a8a; --secondary: #3b82f6; --bg: #f8fafc; --text: #1e293b; --elegant-green: #0f766e; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; padding-bottom: 90px; }
-    .header { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; text-align: center; padding: 25px 15px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); position: relative; }
+    
+    /* PERBAIKAN CSS HEADER & NAVIGASI KANGGO HP */
+    .header { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; text-align: center; padding: 20px 15px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
     .header h2 { margin: 0 0 5px 0; font-size: 22px; font-weight: 700; letter-spacing: 1px;}
-    .header h3 { margin: 0 0 5px 0; font-size: 15px; color: #dbeafe; font-weight: 500;}
-    .nav-container { position: absolute; top: 15px; right: 15px; display: flex; gap: 8px; }
+    .header h3 { margin: 0 0 15px 0; font-size: 14px; color: #dbeafe; font-weight: 500;}
+    .nav-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+    
     .btn-nav { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); padding: 8px 12px; border-radius: 8px; color: white; font-size: 13px; font-weight: bold; cursor: pointer; backdrop-filter: blur(4px); transition: 0.2s;}
     .btn-nav:hover, .btn-nav.aktif { background: white; color: var(--primary); }
     .card { background: white; border-radius: 12px; padding: 20px; margin: 15px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-left: 5px solid var(--secondary); }
@@ -40,8 +43,11 @@
     th { background-color: var(--elegant-green); color: white; font-weight: 600; position: sticky; top: 0; z-index: 10; border-bottom: 2px solid #0f5132; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 5px; line-height: 1.3; }
     th:last-child, td:last-child { border-right: none; }
     tbody tr:hover { background-color: #f1f5f9; }
-    .col-nama { text-align: left; font-weight: 600; color: #334155; width: 100%; min-width: 180px; padding-left: 10px;}
+    
+    /* PELEBARAN KOLOM NAMA SISWA KANGGO HP */
+    .col-nama { text-align: left; font-weight: 600; color: #334155; width: 100%; min-width: 260px; white-space: nowrap; padding-left: 10px;}
     .col-angka { width: 75px; min-width: 75px; max-width: 75px; }
+    
     input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     input[type="number"] { -moz-appearance: textfield; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; width: 100%; padding: 8px 0px; text-align: center; font-size: 13px; color: #1e293b; box-sizing: border-box;}
     input[type="number"]:focus { border-color: var(--secondary); outline: none; }
@@ -87,13 +93,13 @@
         <label>Pilih Kelas</label>
         <select id="kelas" onchange="loadSiswa()"><option value="">-- Pilih Kelas --</option><option value="10A">10A</option><option value="10B">10B</option><option value="10C">10C</option><option value="10D">10D</option><option value="10E">10E</option><option value="10F">10F</option><option value="11A">11A</option><option value="11B">11B</option><option value="11C">11C</option><option value="11F">11F</option><option value="11G">11G</option><option value="11H">11H</option><option value="12 F">12 F</option><option value="12 G">12 G</option><option value="12 H">12 H</option><option value="12A">12A</option><option value="12B">12B</option><option value="12C">12C</option><option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option><option value="7D">7D</option><option value="7E">7E</option><option value="7F">7F</option><option value="7G">7G</option><option value="7H">7H</option><option value="8A">8A</option><option value="8B">8B</option><option value="8C">8C</option><option value="8D">8D</option><option value="8E">8E</option><option value="8F">8F</option><option value="8G">8G</option><option value="8H">8H</option><option value="9A">9A</option><option value="9B">9B</option><option value="9C">9C</option><option value="9D">9D</option><option value="9E">9E</option><option value="9F">9F</option><option value="9G">9G</option><option value="9H">9H</option><option value="9I">9I</option><option value="9J">9J</option></select>
       </div>
-      <div class="form-group" id="container-siswa" style="display: none; background: #eff6ff; padding: 15px; border-radius: 10px; border: 1px solid #bfdbfe;">
+      <div class="form-group" id="container-siswa" style="display: block; background: rgb(239, 246, 255); padding: 15px; border-radius: 10px; border: 1px solid rgb(191, 219, 254);">
         <label style="color: #1e3a8a;">🔍 Mode Fokus Siswa</label>
-        <select id="siswa" onchange="filterSiswa()"></select>
+        <select id="siswa" onchange="filterSiswa()"><option value="all">Tampilkan Semua Siswa</option><option value="0">ABDURRAHMAN</option><option value="1">AHMAD HAFIZH QINTHARA</option><option value="2">ALIF RUZAIN</option><option value="3">ALKAUTSAR RAI LUNGGANA</option><option value="4">BILAL ALTHAF MUNAWWAR A. RAHIM</option><option value="5">BILAL GHASSANI</option><option value="6">DEANDRA ABINAYA</option><option value="7">FADHIL PUTRA UTAMA</option><option value="8">FADILAH RAMADHAN</option><option value="9">FARROS</option><option value="10">FATHIR RAMADHAN MARJAISAL</option><option value="11">HAMMAM UBAID ANNAAFI</option><option value="12">KEITARO DANUARTA KUSUMAH</option><option value="13">KEMAS MUHAMMAD RIFQI</option><option value="14">MUHAMAD FARELL ALFARIZY</option><option value="15">MUHAMAD NAFIZ AZMI</option><option value="16">MUHAMMAD AL-ABRAR</option><option value="17">MUHAMMAD ALIF TAQI SYAWALA</option><option value="18">MUHAMMAD BAQI AL RABBANI</option><option value="19">MUHAMMAD DHAFA AKHTAR FAIZI</option><option value="20">MUHAMMAD DIMAS HAIKAL</option><option value="21">MUHAMMAD HAFIZH FIRLY HAIDAR</option><option value="22">MUHAMMAD HANIF RAMADHAN</option><option value="23">MUHAMMAD JANUAR MATAHARI</option><option value="24">MUHAMMAD LUTHFI ADZDZIKRI</option><option value="25">MUHAMMAD NAWWAF AMRULLOH</option><option value="26">MUHAMMAD SAHL `ABDUL`AZIZ</option><option value="27">MUHAMMAD ZAKI AR ROYYAN</option><option value="28">NAFIS KHAIRUL MUAFFA R</option><option value="29">RAIZAN ADZKARA AL KHAIRY</option><option value="30">REYVANNO GAVIANDRA ARFEEZA</option><option value="31">YASIR ABDUL BASHIR</option></select>
       </div>
     </div>
 
-    <div class="tab-container" id="tab-container" style="display: none; justify-content: space-between; align-items: flex-end; margin: 15px 15px 0 15px; border-bottom: 2px solid #cbd5e1;">
+    <div class="tab-container" id="tab-container" style="display: flex; justify-content: space-between; align-items: flex-end; margin: 15px 15px 0px; border-bottom: 2px solid rgb(203, 213, 225);">
       <div style="display: flex; gap: 5px;">
         <button id="btn-smt1" class="tab-btn active" onclick="pindahSemester('1')">SEMESTER 1</button>
         <button id="btn-smt2" class="tab-btn" onclick="pindahSemester('2')">SEMESTER 2</button>
@@ -107,7 +113,7 @@
       </div>
     </div>
 
-    <div class="table-container" id="table-container" style="display: none;">
+    <div class="table-container" id="table-container" style="display: block;">
       <table id="tabel-nilai" class="tabel-smt1">
         <thead>
           <tr>
@@ -124,7 +130,871 @@
             <th class="col-smt2 col-angka">STS 2</th><th class="col-smt2 col-angka">RATA2</th><th class="col-smt2 col-angka">SAS</th><th class="col-smt2 col-angka">RAPOR 2</th>
           </tr>
         </thead>
-        <tbody id="table-body"></tbody>
+        <tbody id="table-body"><tr><td style="font-weight:bold; color:#64748b;">1</td><td class="col-nama">ABDURRAHMAN</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_0" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_0" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_0" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_0" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ABDURRAHMAN', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_0" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">2</td><td class="col-nama">AHMAD HAFIZH QINTHARA</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_1" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_1" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_1" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_1" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_AHMAD HAFIZH QINTHARA', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_1" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">3</td><td class="col-nama">ALIF RUZAIN</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_2" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_2" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_2" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_2" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALIF RUZAIN', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_2" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">4</td><td class="col-nama">ALKAUTSAR RAI LUNGGANA</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_3" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_3" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_3" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_3" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_ALKAUTSAR RAI LUNGGANA', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_3" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">5</td><td class="col-nama">BILAL ALTHAF MUNAWWAR A. RAHIM</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_4" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_4" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_4" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_4" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL ALTHAF MUNAWWAR A. RAHIM', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_4" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">6</td><td class="col-nama">BILAL GHASSANI</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_5" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_5" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_5" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_5" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_BILAL GHASSANI', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_5" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">7</td><td class="col-nama">DEANDRA ABINAYA</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_6" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_6" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_6" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_6" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_DEANDRA ABINAYA', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_6" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">8</td><td class="col-nama">FADHIL PUTRA UTAMA</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_7" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_7" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_7" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_7" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADHIL PUTRA UTAMA', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_7" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">9</td><td class="col-nama">FADILAH RAMADHAN</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_8" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_8" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_8" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_8" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FADILAH RAMADHAN', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_8" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">10</td><td class="col-nama">FARROS</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_9" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_9" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_9" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_9" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FARROS', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_9" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">11</td><td class="col-nama">FATHIR RAMADHAN MARJAISAL</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_10" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_10" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_10" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_10" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_FATHIR RAMADHAN MARJAISAL', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_10" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">12</td><td class="col-nama">HAMMAM UBAID ANNAAFI</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_11" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_11" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_11" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_11" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_HAMMAM UBAID ANNAAFI', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_11" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">13</td><td class="col-nama">KEITARO DANUARTA KUSUMAH</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_12" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_12" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_12" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_12" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEITARO DANUARTA KUSUMAH', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_12" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">14</td><td class="col-nama">KEMAS MUHAMMAD RIFQI</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_13" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_13" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_13" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_13" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_KEMAS MUHAMMAD RIFQI', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_13" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">15</td><td class="col-nama">MUHAMAD FARELL ALFARIZY</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_14" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_14" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_14" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_14" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD FARELL ALFARIZY', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_14" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">16</td><td class="col-nama">MUHAMAD NAFIZ AZMI</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_15" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_15" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_15" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_15" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMAD NAFIZ AZMI', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_15" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">17</td><td class="col-nama">MUHAMMAD AL-ABRAR</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_16" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_16" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_16" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_16" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD AL-ABRAR', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_16" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">18</td><td class="col-nama">MUHAMMAD ALIF TAQI SYAWALA</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_17" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_17" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_17" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_17" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ALIF TAQI SYAWALA', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_17" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">19</td><td class="col-nama">MUHAMMAD BAQI AL RABBANI</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_18" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_18" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_18" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_18" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD BAQI AL RABBANI', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_18" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">20</td><td class="col-nama">MUHAMMAD DHAFA AKHTAR FAIZI</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_19" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_19" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_19" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_19" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DHAFA AKHTAR FAIZI', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_19" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">21</td><td class="col-nama">MUHAMMAD DIMAS HAIKAL</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_20" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_20" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_20" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_20" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD DIMAS HAIKAL', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_20" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">22</td><td class="col-nama">MUHAMMAD HAFIZH FIRLY HAIDAR</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_21" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_21" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_21" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_21" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HAFIZH FIRLY HAIDAR', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_21" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">23</td><td class="col-nama">MUHAMMAD HANIF RAMADHAN</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_22" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_22" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_22" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_22" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD HANIF RAMADHAN', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_22" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">24</td><td class="col-nama">MUHAMMAD JANUAR MATAHARI</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_23" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_23" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_23" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_23" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD JANUAR MATAHARI', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_23" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">25</td><td class="col-nama">MUHAMMAD LUTHFI ADZDZIKRI</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_24" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_24" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_24" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_24" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD LUTHFI ADZDZIKRI', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_24" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">26</td><td class="col-nama">MUHAMMAD NAWWAF AMRULLOH</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_25" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_25" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_25" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_25" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD NAWWAF AMRULLOH', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_25" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">27</td><td class="col-nama">MUHAMMAD SAHL `ABDUL`AZIZ</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_26" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_26" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_26" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_26" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD SAHL `ABDUL`AZIZ', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_26" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">28</td><td class="col-nama">MUHAMMAD ZAKI AR ROYYAN</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_27" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_27" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_27" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_27" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_MUHAMMAD ZAKI AR ROYYAN', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_27" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">29</td><td class="col-nama">NAFIS KHAIRUL MUAFFA R</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_28" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_28" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_28" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_28" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_NAFIS KHAIRUL MUAFFA R', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_28" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">30</td><td class="col-nama">RAIZAN ADZKARA AL KHAIRY</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_29" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_29" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_29" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_29" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_RAIZAN ADZKARA AL KHAIRY', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_29" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">31</td><td class="col-nama">REYVANNO GAVIANDRA ARFEEZA</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_30" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_30" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_30" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_30" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_REYVANNO GAVIANDRA ARFEEZA', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_30" class="readonly-input" value="" style="" readonly=""></td>
+        </tr><tr><td style="font-weight:bold; color:#64748b;">32</td><td class="col-nama">YASIR ABDUL BASHIR</td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_nh1', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_nh2', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_nh3', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_nh4', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_nh5', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_nh6', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_nh7', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_nh8', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_sts', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rata2_31" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt1 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 's1_pas', this.value, this)"></td>
+          <td class="col-smt1 col-angka"><input type="text" id="s1_rap_31" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+
+          <td class="col-smt2 col-angka"><input type="text" id="rap1_tampil_31" class="readonly-input rap-smt1" value="" style="" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'nh1', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'nh2', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'nh3', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'nh4', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'nh5', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'nh6', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'nh7', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'nh8', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'sts', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rata2_31" class="readonly-input" value="0.00" style="color: #ef4444; font-weight: bold;" readonly=""></td>
+          <td class="col-smt2 col-angka"><input type="number" value="" style="" oninput="simpanData('UMUM_10A_YASIR ABDUL BASHIR', 'sas', this.value, this)"></td>
+          <td class="col-smt2 col-angka"><input type="text" id="rap2_31" class="readonly-input" value="" style="" readonly=""></td>
+        </tr></tbody>
       </table>
     </div>
   </div>
@@ -140,27 +1010,253 @@
       <div class="table-container" style="margin: 0; min-width: unset;">
         <table style="min-width: unset;">
           <thead>
-            <tr><th style="width: 40px;">No</th><th style="text-align: left; padding-left: 10px;">Nama Siswa (Ketik u/ Edit)</th><th style="width: 250px;">Aksi / Urutan</th></tr>
+            <tr><th style="width: 40px;">No</th><th style="text-align: left; padding-left: 10px; min-width: 220px;">Nama Siswa (Ketik u/ Edit)</th><th style="width: 250px;">Aksi / Urutan</th></tr>
           </thead>
-          <tbody id="tbody-manajemen"><tr><td colspan="3" style="padding: 20px; color: #94a3b8;">Pilih kelas heula di luhur</td></tr></tbody>
+          <tbody id="tbody-manajemen"><tr><td style="font-weight:bold;">1</td>
+            <td><input type="text" class="input-nama-master" value="ABDURRAHMAN" onchange="updateNamaMaster('10A', 0, this.value, 'ABDURRAHMAN')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 0, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 0, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 0)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 0)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">2</td>
+            <td><input type="text" class="input-nama-master" value="AHMAD HAFIZH QINTHARA" onchange="updateNamaMaster('10A', 1, this.value, 'AHMAD HAFIZH QINTHARA')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 1, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 1, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 1)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 1)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">3</td>
+            <td><input type="text" class="input-nama-master" value="ALIF RUZAIN" onchange="updateNamaMaster('10A', 2, this.value, 'ALIF RUZAIN')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 2, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 2, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 2)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 2)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">4</td>
+            <td><input type="text" class="input-nama-master" value="ALKAUTSAR RAI LUNGGANA" onchange="updateNamaMaster('10A', 3, this.value, 'ALKAUTSAR RAI LUNGGANA')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 3, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 3, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 3)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 3)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">5</td>
+            <td><input type="text" class="input-nama-master" value="BILAL ALTHAF MUNAWWAR A. RAHIM" onchange="updateNamaMaster('10A', 4, this.value, 'BILAL ALTHAF MUNAWWAR A. RAHIM')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 4, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 4, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 4)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 4)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">6</td>
+            <td><input type="text" class="input-nama-master" value="BILAL GHASSANI" onchange="updateNamaMaster('10A', 5, this.value, 'BILAL GHASSANI')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 5, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 5, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 5)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 5)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">7</td>
+            <td><input type="text" class="input-nama-master" value="DEANDRA ABINAYA" onchange="updateNamaMaster('10A', 6, this.value, 'DEANDRA ABINAYA')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 6, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 6, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 6)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 6)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">8</td>
+            <td><input type="text" class="input-nama-master" value="FADHIL PUTRA UTAMA" onchange="updateNamaMaster('10A', 7, this.value, 'FADHIL PUTRA UTAMA')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 7, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 7, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 7)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 7)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">9</td>
+            <td><input type="text" class="input-nama-master" value="FADILAH RAMADHAN" onchange="updateNamaMaster('10A', 8, this.value, 'FADILAH RAMADHAN')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 8, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 8, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 8)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 8)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">10</td>
+            <td><input type="text" class="input-nama-master" value="FARROS" onchange="updateNamaMaster('10A', 9, this.value, 'FARROS')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 9, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 9, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 9)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 9)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">11</td>
+            <td><input type="text" class="input-nama-master" value="FATHIR RAMADHAN MARJAISAL" onchange="updateNamaMaster('10A', 10, this.value, 'FATHIR RAMADHAN MARJAISAL')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 10, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 10, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 10)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 10)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">12</td>
+            <td><input type="text" class="input-nama-master" value="HAMMAM UBAID ANNAAFI" onchange="updateNamaMaster('10A', 11, this.value, 'HAMMAM UBAID ANNAAFI')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 11, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 11, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 11)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 11)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">13</td>
+            <td><input type="text" class="input-nama-master" value="KEITARO DANUARTA KUSUMAH" onchange="updateNamaMaster('10A', 12, this.value, 'KEITARO DANUARTA KUSUMAH')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 12, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 12, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 12)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 12)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">14</td>
+            <td><input type="text" class="input-nama-master" value="KEMAS MUHAMMAD RIFQI" onchange="updateNamaMaster('10A', 13, this.value, 'KEMAS MUHAMMAD RIFQI')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 13, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 13, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 13)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 13)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">15</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMAD FARELL ALFARIZY" onchange="updateNamaMaster('10A', 14, this.value, 'MUHAMAD FARELL ALFARIZY')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 14, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 14, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 14)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 14)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">16</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMAD NAFIZ AZMI" onchange="updateNamaMaster('10A', 15, this.value, 'MUHAMAD NAFIZ AZMI')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 15, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 15, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 15)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 15)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">17</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD AL-ABRAR" onchange="updateNamaMaster('10A', 16, this.value, 'MUHAMMAD AL-ABRAR')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 16, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 16, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 16)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 16)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">18</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD ALIF TAQI SYAWALA" onchange="updateNamaMaster('10A', 17, this.value, 'MUHAMMAD ALIF TAQI SYAWALA')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 17, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 17, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 17)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 17)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">19</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD BAQI AL RABBANI" onchange="updateNamaMaster('10A', 18, this.value, 'MUHAMMAD BAQI AL RABBANI')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 18, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 18, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 18)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 18)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">20</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD DHAFA AKHTAR FAIZI" onchange="updateNamaMaster('10A', 19, this.value, 'MUHAMMAD DHAFA AKHTAR FAIZI')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 19, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 19, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 19)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 19)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">21</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD DIMAS HAIKAL" onchange="updateNamaMaster('10A', 20, this.value, 'MUHAMMAD DIMAS HAIKAL')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 20, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 20, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 20)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 20)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">22</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD HAFIZH FIRLY HAIDAR" onchange="updateNamaMaster('10A', 21, this.value, 'MUHAMMAD HAFIZH FIRLY HAIDAR')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 21, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 21, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 21)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 21)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">23</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD HANIF RAMADHAN" onchange="updateNamaMaster('10A', 22, this.value, 'MUHAMMAD HANIF RAMADHAN')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 22, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 22, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 22)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 22)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">24</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD JANUAR MATAHARI" onchange="updateNamaMaster('10A', 23, this.value, 'MUHAMMAD JANUAR MATAHARI')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 23, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 23, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 23)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 23)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">25</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD LUTHFI ADZDZIKRI" onchange="updateNamaMaster('10A', 24, this.value, 'MUHAMMAD LUTHFI ADZDZIKRI')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 24, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 24, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 24)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 24)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">26</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD NAWWAF AMRULLOH" onchange="updateNamaMaster('10A', 25, this.value, 'MUHAMMAD NAWWAF AMRULLOH')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 25, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 25, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 25)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 25)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">27</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD SAHL `ABDUL`AZIZ" onchange="updateNamaMaster('10A', 26, this.value, 'MUHAMMAD SAHL `ABDUL`AZIZ')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 26, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 26, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 26)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 26)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">28</td>
+            <td><input type="text" class="input-nama-master" value="MUHAMMAD ZAKI AR ROYYAN" onchange="updateNamaMaster('10A', 27, this.value, 'MUHAMMAD ZAKI AR ROYYAN')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 27, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 27, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 27)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 27)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">29</td>
+            <td><input type="text" class="input-nama-master" value="NAFIS KHAIRUL MUAFFA R" onchange="updateNamaMaster('10A', 28, this.value, 'NAFIS KHAIRUL MUAFFA R')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 28, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 28, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 28)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 28)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">30</td>
+            <td><input type="text" class="input-nama-master" value="RAIZAN ADZKARA AL KHAIRY" onchange="updateNamaMaster('10A', 29, this.value, 'RAIZAN ADZKARA AL KHAIRY')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 29, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 29, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 29)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 29)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">31</td>
+            <td><input type="text" class="input-nama-master" value="REYVANNO GAVIANDRA ARFEEZA" onchange="updateNamaMaster('10A', 30, this.value, 'REYVANNO GAVIANDRA ARFEEZA')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 30, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 30, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 30)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 30)">🗑️</button>
+            </td></tr><tr><td style="font-weight:bold;">32</td>
+            <td><input type="text" class="input-nama-master" value="YASIR ABDUL BASHIR" onchange="updateNamaMaster('10A', 31, this.value, 'YASIR ABDUL BASHIR')"></td>
+            <td>
+                <button class="btn-mini btn-up" title="Naik" onclick="geserSiswa('10A', 31, -1)">⬆️</button>
+                <button class="btn-mini btn-down" title="Turun" onclick="geserSiswa('10A', 31, 1)">⬇️</button>
+                <button class="btn-mini btn-move" title="Pindah Kelas" onclick="pindahKelas('10A', 31)">➡️ Pindah</button>
+                <button class="btn-mini btn-del" title="Hapus" onclick="hapusSiswa('10A', 31)">🗑️</button>
+            </td></tr></tbody>
         </table>
       </div>
     </div>
   </div>
 
   <div id="page-data" style="display: none;">
-    <div class="card">
+    <div class="card" id="card-import">
       <div class="badge">Langkah 1</div>
       <h3 style="margin-top:0; color:var(--primary);">📂 1. Import Data (Excel)</h3>
       <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Pilih file Excel nu badé diimpor. Pami kelasna geus aya, <b>data siswa nu heubeul bakal ditimpa sagemblengna</b>.</p>
       <button class="btn-action" style="background:var(--elegant-green);" onclick="document.getElementById('fileUpload').click()">Mulai Import Excel</button>
     </div>
-    <div class="card" style="border-left-color: #8b5cf6;">
+    
+    <div class="card" style="border-left-color: #8b5cf6;" id="card-download">
       <div class="badge" style="background:#ede9fe; color:#5b21b6; border-color:#ddd6fe;">Langkah 2</div>
       <h3 style="margin-top:0; color:#6d28d9;">💾 2. Jadikan Aplikasi Permanen</h3>
       <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Klik tombol ini untuk mengunci seluruh data Siswa, Nilai, <b>Guru, &amp; Mapel</b> saat ini ke dalam 1 file HTML baru. File ini siap dibagikan ke guru-guru.</p>
       <button class="btn-action" style="background:#8b5cf6;" onclick="simpanKeHTML()">⬇ Download Aplikasi_Nilai.html</button>
     </div>
+    
     <div class="card" style="border-left-color: #ef4444;">
       <h3 style="margin-top:0; color:#ef4444;">⚠️ Reset Memori HP Ini</h3>
       <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Pencét ieu pami hoyong ngosongkeun aplikasi jiga anyar deui.</p>
@@ -186,13 +1282,18 @@
     }
 
     window.onload = function() {
-      // Prioritaskeun data nu diketik > data nu nempel (Embedded) pas offline
       document.getElementById('guru').value = localStorage.getItem('almatuq_guru') || window.EMBEDDED_GURU || '';
       document.getElementById('mapel').value = localStorage.getItem('almatuq_mapel') || window.EMBEDDED_MAPEL || '';
       
       loadHistoryMapel(); updateDropdownKelasGlobal();
       const kelasPanungtung = localStorage.getItem('almatuq_kelas');
       if (kelasPanungtung && dbSiswa[kelasPanungtung]) { document.getElementById('kelas').value = kelasPanungtung; loadSiswa(); }
+
+      if (window.location.protocol.startsWith('http') && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1')) {
+          let cImport = document.getElementById('card-import'); if(cImport) cImport.style.display = 'none';
+          let cDown = document.getElementById('card-download'); if(cDown) cDown.style.display = 'none';
+          let nSiswa = document.getElementById('nav-siswa'); if(nSiswa) nSiswa.style.display = 'none';
+      }
     };
 
     function saveSesi() {
@@ -292,14 +1393,11 @@
       reader.onload = function(e) {
         try {
           const data = new Uint8Array(e.target.result); const workbook = XLSX.read(data, {type: 'array'}); 
-          let countSiswa = 0;
-          let guruDariExcel = "";
-          let mapelDariExcel = "";
+          let countSiswa = 0; let guruDariExcel = ""; let mapelDariExcel = "";
 
           workbook.SheetNames.forEach(sheetName => {
             const worksheet = workbook.Sheets[sheetName]; const jsonData = XLSX.utils.sheet_to_json(worksheet, {defval: ""});
             jsonData.forEach(row => {
-              // DETEKSI MAPEL JEUNG GURU TINA EXCEL (Pami Aya)
               if (row['Guru'] && !guruDariExcel) guruDariExcel = row['Guru'];
               if (row['Mapel'] && !mapelDariExcel) mapelDariExcel = row['Mapel'];
               else if (row['Mata Pelajaran'] && !mapelDariExcel) mapelDariExcel = row['Mata Pelajaran'];
@@ -342,14 +1440,9 @@
           });
           if (countSiswa === 0) { alert("Gagal maca data! Pastikeun file Excel-na bener aya kolom 'Kelas' jeung 'Nama Siswa'."); } 
           else {
-            // NGEUSIAN KOLOM GURU & MAPEL OTOMATIS
             if(guruDariExcel !== "") document.getElementById('guru').value = guruDariExcel;
-            if(mapelDariExcel !== "") {
-                document.getElementById('mapel').value = mapelDariExcel;
-                simpanHistoryMapel(mapelDariExcel);
-            }
-            saveSesi(); // Simpen ka memori
-
+            if(mapelDariExcel !== "") { document.getElementById('mapel').value = mapelDariExcel; simpanHistoryMapel(mapelDariExcel); }
+            saveSesi(); 
             localStorage.setItem('almatuq_siswa', JSON.stringify(dbSiswa)); localStorage.setItem('almatuq_nilai', JSON.stringify(dataNilai));
             updateDropdownKelasGlobal();
             document.getElementById('kelas').value = ""; document.getElementById('container-siswa').style.display = 'none'; document.getElementById('table-container').style.display = 'none'; document.getElementById('tab-container').style.display = 'none';
@@ -471,10 +1564,7 @@
 
     function exportDataBaru(cakupan) {
       const jenis = document.getElementById('jenis-export').value; const kelasAktif = document.getElementById('kelas').value; const wb = XLSX.utils.book_new();
-      
-      // Nyokot ngaran Guru sareng Mapel sateuacan diexport
-      const namaGuru = document.getElementById('guru').value || "";
-      const namaMapel = document.getElementById('mapel').value || "";
+      const namaGuru = document.getElementById('guru').value || ""; const namaMapel = document.getElementById('mapel').value || "";
 
       let targetKelas = cakupan === 'kelas' ? [kelasAktif] : Object.keys(dbSiswa);
       targetKelas.forEach(kls => {
@@ -482,7 +1572,6 @@
         let dataSheet = [];
         dbSiswa[kls].forEach((s, i) => {
           let dn = dataNilai[getKey(kls, s.nama)] || {}; 
-          // Guru sareng Mapel diselipkeun dina unggal baris sangkan kabaca pas di-import deui
           let rowData = { "No": i + 1, "Mapel": namaMapel, "Guru": namaGuru, "Kelas": kls, "Nama Siswa": s.nama };
           
           if (jenis === 'sts1' || jenis === 'smt1' || jenis === 'full') {
@@ -521,7 +1610,6 @@
       const parser = new DOMParser(); const doc = parser.parseFromString(html, 'text/html');
       
       const scriptTag = doc.getElementById('embedded-data');
-      // Guru jeung Mapel anu keur aktif bakal dikonci ka jero HTML 
       let guruAktif = document.getElementById('guru').value || "";
       let mapelAktif = document.getElementById('mapel').value || "";
       
